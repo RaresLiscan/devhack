@@ -32,7 +32,61 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+
+#all {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+}
+
+#buttton {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#boxx {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #b8c2d4;
+  border-radius: 25px;
+  width: 50%;
+  height: 100%;
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 10px 10px 5px rgba(120, 188, 211, 0.2);
+}
+
+#pozaa {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+}
+
+#textt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  padding: 10px;
+  font-family: DejaVu Sans Mono, monospace;
+  text-align: center;
 }
