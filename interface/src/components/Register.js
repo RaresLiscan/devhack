@@ -18,11 +18,10 @@ export default function Register() {
       hobbies: [hobby],
       profilePicture: `${email}.png`,
     });
-    console.log("response: ", response);
 
-    // if (response) {
-    //   navigate("/");
-    // }
+    if (response) {
+      navigate("/");
+    }
   };
   return (
     <div className="container" style={{ marginTop: 150 }}>
