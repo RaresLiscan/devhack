@@ -9,7 +9,8 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [hobby, setHobby] = useState("");
 
-  const register = async () => {
+  const register = async (e) => {
+    e.preventDefault();
     const response = await UsersService.register({
       name,
       email,
@@ -17,10 +18,11 @@ export default function Register() {
       hobbies: [hobby],
       profilePicture: `${email}.png`,
     });
+    console.log("response: ", response);
 
-    if (response) {
-      navigate("/");
-    }
+    // if (response) {
+    //   navigate("/");
+    // }
   };
   return (
     <div className="container" style={{ marginTop: 150 }}>
@@ -34,7 +36,7 @@ export default function Register() {
             className="form-control"
             onChange={(e) => setName(e.target.value)}
           />
-          <label className="form-label" for="registerName">
+          <label className="form-label" htmlFor="registerName">
             Name
           </label>
         </div>
@@ -46,7 +48,7 @@ export default function Register() {
             className="form-control"
             onChange={(e) => setEmail(e.target.value)}
           />
-          <label className="form-label" for="registerEmail">
+          <label className="form-label" htmlFor="registerEmail">
             Email
           </label>
         </div>
@@ -56,45 +58,28 @@ export default function Register() {
             type="password"
             id="registerPassword"
             className="form-control"
-          />
-          <label
-            className="form-label"
-            for="registerPassword"
             onChange={(e) => setPassword(e.target.value)}
-          >
+          />
+          <label className="form-label" htmlFor="registerPassword">
             Password
           </label>
         </div>
 
         <div className="form-outline mb-4">
-          <input type="text" id="registerName" className="form-control" />
+          <input type="text" id="registerHobby" className="form-control" />
           <label
             className="form-label"
-            for="registerName"
+            htmlFor="registerHobby"
             onChange={(e) => setHobby(e.target.value)}
           >
             Main hobby
           </label>
         </div>
 
-        <div className="form-check d-flex justify-content-center mb-4">
-          <input
-            className="form-check-input me-2"
-            type="checkbox"
-            value=""
-            id="registerCheck"
-            checked
-            aria-describedby="registerCheckHelpText"
-          />
-          <label className="form-check-label" for="registerCheck">
-            I have read and agree to the terms
-          </label>
-        </div>
-
         <button
           type="submit"
           className="btn btn-primary btn-block mb-3"
-          onClick={() => register()}
+          onClick={(e) => register(e)}
         >
           Sign in
         </button>
