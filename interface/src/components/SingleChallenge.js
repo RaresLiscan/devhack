@@ -6,6 +6,7 @@ import ChallengeService from "../services/challenge.service";
 export default function Challanges() {
   const { id } = useParams();
 
+  const [loaded, setLoaded] = useState(false);
   const [challenge, setChallenge] = useState({});
 
   useEffect(() => {
@@ -14,9 +15,14 @@ export default function Challanges() {
       console.log("challenges: ", challenges);
 
       setChallenge(challenges);
+      setLoaded(true);
     }
     getChallenge();
   }, []);
+
+  if (!loaded) {
+    return null;
+  }
 
   return (
     <div className="p-3 mb-2 bg-info text-dark text-justify text-center">
